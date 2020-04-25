@@ -34,8 +34,7 @@ RUN yum install -y java-1.8.0-openjdk java-1.8.0-openjdk-devel && \
     tar zxvf /opt/apache-maven-3.6.3-bin.tar.gz --directory /opt && \
     rm -rf /opt/apache-maven-3.6.3-bin.tar.gz && \
     rm -rf /opt/apache-tomcat-8.5.54/webapps/* && \
-    chown -R 1001:0 /opt/apache-tomcat-8.5.54/webapps/ && \
-    chown -R 1001:0 /opt/apache-tomcat-8.5.54/logs
+    chown -R 1001:0 /opt/apache-tomcat-8.5.54
 
 COPY ./s2i/bin/ $STI_SCRIPTS_PATH
 
