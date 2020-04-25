@@ -25,5 +25,5 @@ echo "---> Deploying the app"
 if [ -f ${HOME}/target/*.war ]; then
   cp -a ${HOME}/target/*.war /opt/apache-tomcat-8.5.54/webapps
 else
-  cp -a ${HOME}/target/*.jar ${APP_ROOT}
+  cp -a ${HOME}/target/*.jar ${APP_ROOT}/app.jar
 fi
