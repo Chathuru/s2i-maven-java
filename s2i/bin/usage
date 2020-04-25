@@ -1,0 +1,7 @@
+#!/bin/sh
+
+cat <<EOF
+Sample invocation:
+You can then run the resulting image via:
+podman run -p 8080:8080 nodejs-sample-app
+EOF

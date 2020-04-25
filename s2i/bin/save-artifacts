@@ -1,0 +1,5 @@
+#!/bin/bash
+
+if [ -d "${HOME}/.m2" ]; then
+  tar -C "${HOME}/.m2" -cf - m2
+fi

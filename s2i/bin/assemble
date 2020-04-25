@@ -1,0 +1,29 @@
+#!/bin/bash
+
+set -e
+
+echo "---> Installing application source ..."
+mv /tmp/src/* ./
+
+# Fix source directory permissions
+fix-permissions ./
+
+if [ ! -f ./pom.xml ]; then
+  echo "FATAL - No pom.xml found"
+  exit 1
+fi
+
+if [ -d /tmp/artifacts/.m2 ]; then
+  echo "---> Restoring build artifacts..."
+  mv /tmp/artifacts/.m2 $HOME/
+fi
+
+echo "---> Building your Java application from source"
+mvn ${MVN_GOALS:-clean package} -DskipTests=${MVN_SKIP_TESTS:-true} -Dmaven.skip.tests=${MVN_SKIP_TESTS:-true} ${MVN_OPTS}
+
+echo "---> Deploying the app"
+if [ -f ${HOME}/target/*.war ]; then
+  cp -a ${HOME}/target/*.war /opt/apache-tomcat-8.5.54/webapps
+else
+  cp -a ${HOME}/target/*.jar ${APP_ROOT}
+fi
