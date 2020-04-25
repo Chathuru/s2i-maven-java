@@ -3,7 +3,7 @@
 set -e
 
 if [ -f ${HOME}/target/*.war ]; then
-  exec /opt/apache-tomcat-8.5.54/bin/startup.sh
+  exec /opt/apache-tomcat-8.5.54/bin/catalina.sh run
 else
   exec java $JAVA_PARAMS -jar ${APP_ROOT}/app.jar
 fi
