@@ -20,3 +20,4 @@ $ docker run -p 8080:8080 hellow-java
 | `MVN_OPTS`     | `None`        | Additional options handed to Maven            |
 
 For Information about how those vars can be configured see the [official docs on Build Strategy Options](https://docs.openshift.com/container-platform/3.11/dev_guide/builds/build_environment.html)
+
