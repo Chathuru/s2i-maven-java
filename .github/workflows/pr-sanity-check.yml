@@ -1,0 +1,17 @@
+name: PR Sanity Check
+
+on:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+
+      - name: Get current time stamp
+        id: timestamp
+        run: |
+          echo "$(date +%Y%m%d-%H%M)"
+          echo "TIMESTAMP=$(date +%Y%m%d-%H%M)" >> $GITHUB_ENV
